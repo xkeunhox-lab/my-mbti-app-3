@@ -12,6 +12,10 @@ create table if not exists public.mbti_results (
 
 alter table public.mbti_results enable row level security;
 
+-- 스크립트를 여러 번 실행해도 안전하도록 기존 정책을 먼저 제거합니다.
+drop policy if exists "Allow anonymous insert" on public.mbti_results;
+drop policy if exists "Allow anonymous select" on public.mbti_results;
+
 -- 익명 사용자가 결과를 저장(적재)할 수 있도록 허용
 create policy "Allow anonymous insert"
   on public.mbti_results

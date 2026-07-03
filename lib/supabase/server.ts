@@ -1,7 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+// docs/supabase-info.md 에 기재된 프로젝트 정보를 직접 하드코딩합니다.
+const SUPABASE_PROJECT_ID = "vmdathlgogmxxymbwieu";
+const supabaseUrl = `https://${SUPABASE_PROJECT_ID}.supabase.co`;
+const supabaseAnonKey = "sb_publishable_7ucoB48vF9z3RWEdh7Jc6Q_hKuYLqQr";
 
 export function createSupabaseServerClient() {
   return createClient(supabaseUrl, supabaseAnonKey, {
